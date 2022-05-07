@@ -1,5 +1,5 @@
 {
-  "name": "postman-to-openapi",
+  "name": "postman-to-openapi-module",
   "version": "2.2.1",
   "description": "Convert postman collection to OpenAPI spec",
   "main": "lib/index.js",
@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joolfe/postman-to-openapi.git"
+    "url": "git+https://github.com/DefCon-007/postman-to-openapi.git"
   },
   "keywords": [
     "swagger",

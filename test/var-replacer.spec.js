@@ -5,13 +5,17 @@ const { readFileSync } = require('fs')
 const { equal } = require('assert').strict
 const replacePostmanVariables = require('../lib/var-replacer')
 
+function parseResults (resultData) {
+  return JSON.stringify(JSON.parse(resultData))
+}
+
 describe('replacePostmanVariables specs', function () {
   const VARIABLES_COLLECTION_V2 = readFileSync('./test/resources/input/v2/Variables.json', 'utf8')
   const VARIABLES_COLLECTION_V21 = readFileSync('./test/resources/input/v21/Variables.json', 'utf8')
-  const RESULT_V2 = readFileSync('./test/resources/var-replace/VariablesReplacedV2.json', 'utf8')
-  const RESULT_V21 = readFileSync('./test/resources/var-replace/VariablesReplacedV21.json', 'utf8')
-  const RESULT_ADDITIONAL_V2 = readFileSync('./test/resources/var-replace/VariablesReplacedV2additional.json', 'utf8')
-  const RESULT_ADDITIONAL_V21 = readFileSync('./test/resources/var-replace/VariablesReplacedV21additional.json', 'utf8')
+  const RESULT_V2 = parseResults(readFileSync('./test/resources/var-replace/VariablesReplacedV2.json', 'utf8'))
+  const RESULT_V21 = parseResults(readFileSync('./test/resources/var-replace/VariablesReplacedV21.json', 'utf8'))
+  const RESULT_ADDITIONAL_V2 = parseResults(readFileSync('./test/resources/var-replace/VariablesReplacedV2additional.json', 'utf8'))
+  const RESULT_ADDITIONAL_V21 = parseResults(readFileSync('./test/resources/var-replace/VariablesReplacedV21additional.json', 'utf8'))
 
   it('should replace all variables successfully v2', async function () {
     const output = replacePostmanVariables(VARIABLES_COLLECTION_V2)

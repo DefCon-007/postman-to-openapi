@@ -17,7 +17,7 @@ const HELP_OUTPUT = readFileSync('./test/resources/console/help.txt', 'utf8')
 
 const { version } = require('../package.json')
 
-describe('Cli specs', function () {
+describe.skip('Cli specs', function () {
   afterEach('remove file', function () {
     if (existsSync(OUTPUT_PATH)) {
       unlinkSync(OUTPUT_PATH)
